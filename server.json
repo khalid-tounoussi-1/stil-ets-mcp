@@ -3,7 +3,13 @@
   "name": "io.github.khalid-tounoussi-1/stil-ets-mcp",
   "title": "STIL Lab Assistant",
   "description": "STIL lab at ETS Montreal — knowledge base and paper search via ArXiv and Semantic Scholar.",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://web-production-4729.up.railway.app/mcp"
+    }
+  ],
   "packages": [
     {
       "registryType": "oci",
