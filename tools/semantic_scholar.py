@@ -1,14 +1,21 @@
+import os
 import time
 
 import httpx
 
 SS_API = "https://api.semanticscholar.org/graph/v1"
 _FIELDS = "title,authors,year,venue,abstract,externalIds,openAccessPdf"
+_TIMEOUT = 15
 
 
-def _get_with_retry(url: str, params: dict, retries: int = 3) -> httpx.Response:
+def _headers() -> dict:
+    key = os.getenv("SEMANTIC_SCHOLAR_API_KEY", "")
+    return {"x-api-key": key} if key else {}
+
+
+def _get_with_retry(url: str, params: dict, retries: int = 2) -> httpx.Response:
     for attempt in range(retries):
-        response = httpx.get(url, params=params, timeout=30)
+        response = httpx.get(url, params=params, headers=_headers(), timeout=_TIMEOUT)
         if response.status_code == 429:
             wait = 2 ** attempt
             time.sleep(wait)

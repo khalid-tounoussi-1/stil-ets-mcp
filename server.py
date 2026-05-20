@@ -240,7 +240,14 @@ def search_semantic_scholar(query: str, max_results: int = 10) -> str:
         query: Search query — keywords, topic, or research question
         max_results: Maximum number of results to return (1–100)
     """
-    papers = search_semantic_scholar_papers(query, max_results=max_results)
+    try:
+        papers = search_semantic_scholar_papers(query, max_results=max_results)
+    except Exception as e:
+        return (
+            f"Semantic Scholar search failed for '{query}': {e}\n\n"
+            "This is usually caused by API rate limiting. "
+            "Set the SEMANTIC_SCHOLAR_API_KEY environment variable to increase limits."
+        )
 
     if not papers:
         return f"No papers found on Semantic Scholar for query: '{query}'"
@@ -276,7 +283,10 @@ def find_related_work(research_question: str, max_results_per_source: int = 5) -
         max_results_per_source: Number of results per source (default 5)
     """
     arxiv_papers = search_arxiv_papers(research_question, max_results=max_results_per_source)
-    ss_papers = search_semantic_scholar_papers(research_question, max_results=max_results_per_source)
+    try:
+        ss_papers = search_semantic_scholar_papers(research_question, max_results=max_results_per_source)
+    except Exception:
+        ss_papers = []
 
     lines = [f"## Related Work for: '{research_question}'\n"]
 
