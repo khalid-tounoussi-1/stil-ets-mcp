@@ -1,6 +1,6 @@
 # STIL Lab MCP Server
 
-An [MCP (Model Context Protocol)](https://modelcontextprotocol.io) server for the **Software Technology and Intelligence Research Lab (STIL)** at [ETS Montreal](https://ouniali.github.io/). It gives any MCP-compatible AI client (Claude Desktop, Claude Code, etc.) direct access to lab knowledge and live academic paper search — without copy-pasting context manually.
+An [MCP (Model Context Protocol)](https://modelcontextprotocol.io) server for the **[Software Technology and Intelligence Research Lab (STIL)](https://ouniali.github.io/)** at ETS Montreal. It gives any MCP-compatible AI client (Claude Desktop, Claude Code, etc.) direct access to lab knowledge and live academic paper search — without copy-pasting context manually.
 
 ---
 
