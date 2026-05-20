@@ -1,0 +1,148 @@
+[
+  {
+    "name": "Mahi Begoug",
+    "role": "phd",
+    "status": "current",
+    "year_start": 2023,
+    "year_end": null,
+    "co_supervisor": null,
+    "research_topic": "Infrastructure-as-Code (IaC) maintenance, Terraform dependency management, cloud provider dependency updates",
+    "thesis_title": null,
+    "current_position": null
+  },
+  {
+    "name": "Syrine Khelifi",
+    "role": "phd",
+    "status": "current",
+    "year_start": 2024,
+    "year_end": null,
+    "co_supervisor": "Dr. Hassan",
+    "research_topic": null,
+    "thesis_title": null,
+    "current_position": null
+  },
+  {
+    "name": "Zaki Brahmi",
+    "role": "phd",
+    "status": "current",
+    "year_start": 2025,
+    "year_end": null,
+    "co_supervisor": "Dr. Sayagh",
+    "research_topic": null,
+    "thesis_title": null,
+    "current_position": null
+  },
+  {
+    "name": "Jasem Khelifi",
+    "role": "phd",
+    "status": "current",
+    "year_start": 2024,
+    "year_end": null,
+    "co_supervisor": null,
+    "research_topic": "GitHub Actions, CI/CD build metrics, Infrastructure-as-Code tooling",
+    "thesis_title": null,
+    "current_position": null
+  },
+  {
+    "name": "Issam Oukhay",
+    "role": "phd",
+    "status": "current",
+    "year_start": 2025,
+    "year_end": null,
+    "co_supervisor": null,
+    "research_topic": "Large Language Models for code change intent classification, modern code review",
+    "thesis_title": null,
+    "current_position": null
+  },
+  {
+    "name": "Mostafa Anouar Ghorab",
+    "role": "phd",
+    "status": "current",
+    "year_start": 2025,
+    "year_end": null,
+    "co_supervisor": "Dr. Saied (Université Laval)",
+    "research_topic": null,
+    "thesis_title": null,
+    "current_position": null
+  },
+  {
+    "name": "Mohamed Amine Batoun",
+    "role": "master",
+    "status": "current",
+    "degree": "M.Sc.",
+    "year_start": 2022,
+    "year_end": null,
+    "co_supervisor": "Dr. Sayagh",
+    "research_topic": null,
+    "thesis_title": null,
+    "current_position": null
+  },
+  {
+    "name": "Zakaria Hassi",
+    "role": "master",
+    "status": "current",
+    "degree": "M.Ing.",
+    "year_start": 2025,
+    "year_end": null,
+    "co_supervisor": null,
+    "research_topic": null,
+    "thesis_title": null,
+    "current_position": null
+  },
+  {
+    "name": "Mohamed Aymen Fares",
+    "role": "master",
+    "status": "current",
+    "degree": "M.Ing.",
+    "year_start": 2025,
+    "year_end": null,
+    "co_supervisor": null,
+    "research_topic": null,
+    "thesis_title": null,
+    "current_position": null
+  },
+  {
+    "name": "Narjes Bessghaier",
+    "role": "phd",
+    "status": "alumni",
+    "year_start": null,
+    "year_end": 2025,
+    "co_supervisor": "Dr. Sayagh",
+    "research_topic": "Infrastructure-as-Code, code review practices for IaC, file recommendation for IaC evolution",
+    "thesis_title": null,
+    "current_position": null
+  },
+  {
+    "name": "Moataz Chouchen",
+    "role": "phd",
+    "status": "alumni",
+    "year_start": null,
+    "year_end": 2024,
+    "co_supervisor": null,
+    "research_topic": "Code review automation, multi-objective genetic programming, code change intent",
+    "thesis_title": null,
+    "current_position": "Assistant Professor at Concordia University"
+  },
+  {
+    "name": "Nuri Almarimi",
+    "role": "phd",
+    "status": "alumni",
+    "year_start": null,
+    "year_end": 2023,
+    "co_supervisor": null,
+    "research_topic": null,
+    "thesis_title": null,
+    "current_position": "Postdoctoral Researcher at University of Saskatchewan"
+  },
+  {
+    "name": "Islem Saidani",
+    "role": "phd",
+    "status": "alumni",
+    "year_start": null,
+    "year_end": 2022,
+    "co_supervisor": null,
+    "research_topic": null,
+    "thesis_title": null,
+    "current_position": "Data Engineer at LGS (IBM Company)"
+  }
+]

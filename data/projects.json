@@ -1,0 +1,37 @@
+[
+  {
+    "name": "AI-Driven Software Maintenance and Evolution",
+    "description": "Research on applying machine learning, deep learning, and search-based techniques to automate software maintenance tasks such as refactoring, technical debt detection, and code smell identification.",
+    "keywords": ["refactoring", "technical debt", "code smells", "software quality", "machine learning"],
+    "members": ["Ali Ouni"],
+    "status": "active"
+  },
+  {
+    "name": "Infrastructure-as-Code (IaC) Quality and Evolution",
+    "description": "Empirical studies and tool support for understanding, maintaining, and evolving Infrastructure-as-Code scripts (Terraform, Ansible, etc.), including dependency management, code review practices, and AWS provider updates.",
+    "keywords": ["infrastructure-as-code", "Terraform", "DevOps", "dependency management", "empirical study"],
+    "members": ["Mahi Begoug", "Jasem Khelifi", "Narjes Bessghaier"],
+    "status": "active"
+  },
+  {
+    "name": "Large Language Models for Software Engineering",
+    "description": "Investigating the capabilities and limitations of LLMs for software engineering tasks including code change intent classification, code review, and automated software development.",
+    "keywords": ["LLM", "GPT", "code review", "code change intent", "automated SE"],
+    "members": ["Issam Oukhay"],
+    "status": "active"
+  },
+  {
+    "name": "Search-Based Software Engineering (SBSE)",
+    "description": "Applying evolutionary computation, genetic programming, and multi-objective optimization to solve software engineering problems such as test generation, code review prediction, and fault prediction.",
+    "keywords": ["SBSE", "genetic programming", "multi-objective optimization", "metaheuristics"],
+    "members": ["Moataz Chouchen", "Ali Ouni"],
+    "status": "active"
+  },
+  {
+    "name": "Empirical Studies on Developer Practices",
+    "description": "Data-driven studies using mining software repositories (MSR) methods to understand how developers work, including Stack Overflow analysis, GitHub Actions usage, and microservices deployment trends.",
+    "keywords": ["empirical SE", "mining software repositories", "Stack Overflow", "GitHub", "developer practices"],
+    "members": ["Ali Ouni"],
+    "status": "active"
+  }
+]

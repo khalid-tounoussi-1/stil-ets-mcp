@@ -1,0 +1,35 @@
+{
+  "name": "Software Technology and Intelligence Research Lab (STIL)",
+  "short_name": "STIL",
+  "institution": "ETS Montreal (École de technologie supérieure), University of Quebec",
+  "department": "Department of Software Engineering and IT",
+  "location": "1100 rue Notre-Dame Ouest, Montreal, Office A-4483",
+  "website": "https://ouniali.github.io/",
+  "director": {
+    "name": "Ali Ouni",
+    "title": "Full Professor, Computer Science and Software Engineering",
+    "email": "ali.ouni@etsmtl.ca",
+    "phone": "+1 514-396-8739",
+    "scholar": "https://scholar.google.ca/citations?user=RHH5rtcAAAAJ&hl=en",
+    "dblp": "https://dblp.uni-trier.de/pid/73/6919-1.html",
+    "github": "https://github.com/ouniali"
+  },
+  "description": "The STIL lab aims to design, develop, evaluate and deploy techniques and solutions to solve software engineering problems by leveraging artificial intelligence and data science methodologies to help practitioners enhance their software systems.",
+  "research_topics": [
+    "Automating Software Development Using Artificial Intelligence",
+    "Search Based Software Engineering",
+    "Software Maintenance and Evolution",
+    "Software Refactoring",
+    "Technical Debt and Software Quality Assurance",
+    "Empirical Software Engineering",
+    "Human Aspects in Software Engineering",
+    "Infrastructure-as-Code (IaC) Maintenance and Evolution",
+    "Large Language Models for Software Engineering",
+    "Code Review Automation",
+    "CI/CD Pipeline Analysis"
+  ],
+  "awards": [
+    "CS-Can/Info-Can Outstanding Early Career Researcher Award (2023)",
+    "10+ Best Paper awards from conferences including ICSOC, MSR, and SIGCSE"
+  ]
+}

@@ -1,0 +1,101 @@
+[
+  {
+    "title": "Code-level challenges and opportunities in hardware description languages: Insights from StackOverflow discussions",
+    "authors": ["Kais Belwafi", "Mohammed Sayagh", "Ali Ouni"],
+    "year": 2026,
+    "venue": "Integration",
+    "type": "journal",
+    "doi": null,
+    "url": null
+  },
+  {
+    "title": "A search-based file recommendation approach for infrastructure-as-code evolution",
+    "authors": ["Narjes Bessghaier", "Ali Ouni", "Mohammed Sayagh", "Mohamed Wiem Mkaouer"],
+    "year": 2026,
+    "venue": "Journal of Systems and Software",
+    "type": "journal",
+    "doi": null,
+    "url": null
+  },
+  {
+    "title": "Parameterized-action based deep reinforcement learning for intelligent traffic signal control",
+    "authors": ["Salah Bouktif", "Abderraouf Cheniki", "Ali Ouni", "Hesham El-Sayed"],
+    "year": 2025,
+    "venue": "Engineering Applications of Artificial Intelligence",
+    "type": "journal",
+    "doi": null,
+    "url": null
+  },
+  {
+    "title": "Towards understanding code review practices for infrastructure-as-code: An empirical study on OpenStack projects",
+    "authors": ["Narjes Bessghaier", "Ali Ouni", "Mohammed Sayagh", "Moataz Chouchen", "Mohamed Wiem Mkaouer"],
+    "year": 2025,
+    "venue": "Empirical Software Engineering",
+    "type": "journal",
+    "doi": null,
+    "url": null
+  },
+  {
+    "title": "Predicting wind turbines faults using Multi-Objective Genetic Programming",
+    "authors": ["Marwa Daaji", "Mohamed Amin Benatia", "Ali Ouni", "Mohamed Mohsen Gammoudi"],
+    "year": 2025,
+    "venue": "Expert Systems with Applications",
+    "type": "journal",
+    "doi": null,
+    "url": null
+  },
+  {
+    "title": "Understanding AWS Provider Dependency Updates in Infrastructure-As-Code: Empirical Study, Taxonomy, and Insights",
+    "authors": ["Mahi Begoug", "Ali Ouni", "Jasem Khelifi"],
+    "year": 2025,
+    "venue": "IEEE Transactions on Services Computing",
+    "type": "journal",
+    "doi": null,
+    "url": null
+  },
+  {
+    "title": "Learning to Predict Code Review Rounds in Modern Code Review Using Multi-Objective Genetic Programming",
+    "authors": ["Moataz Chouchen", "Issam Oukhay", "Ali Ouni"],
+    "year": 2025,
+    "venue": "GECCO 2025",
+    "type": "conference",
+    "doi": null,
+    "url": null
+  },
+  {
+    "title": "How Do Infrastructure-as-Code Practitioners Update Their Dependencies? An Empirical Study on Terraform Module Updates",
+    "authors": ["Mahi Begoug", "Ali Ouni", "Moataz Chouchen"],
+    "year": 2025,
+    "venue": "MSR 2025",
+    "type": "conference",
+    "doi": null,
+    "url": null
+  },
+  {
+    "title": "An Empirical Study on Microservices Deployment Trends, Topics and Challenges in Stack Overflow",
+    "authors": ["Amina Bouaziz", "Mohamed Aymen Saied", "Mohammed Sayagh", "Ali Ouni", "Mohamed Wiem Mkaouer"],
+    "year": 2025,
+    "venue": "SANER 2025",
+    "type": "conference",
+    "doi": null,
+    "url": null
+  },
+  {
+    "title": "On the Performance of Large Language Models for Code Change Intent Classification",
+    "authors": ["Issam Oukhay", "Moataz Chouchen", "Ali Ouni", "Fatemeh H. Fard"],
+    "year": 2025,
+    "venue": "SANER 2025",
+    "type": "conference",
+    "doi": null,
+    "url": null
+  },
+  {
+    "title": "GHAminer: An Open Source Tool to Extract GitHub Actions Build Metrics",
+    "authors": ["Jasem Khelifi", "Mohamed Amin Benatia", "Moataz Chouchen", "Ali Ouni", "Mohammed Sayagh", "Mohamed Wiem Mkaouer"],
+    "year": 2025,
+    "venue": "SANER 2025",
+    "type": "conference",
+    "doi": null,
+    "url": null
+  }
+]
