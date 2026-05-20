@@ -1,5 +1,7 @@
 FROM python:3.11-slim
 
+LABEL io.modelcontextprotocol.server.name="io.github.khalid-tounoussi-1/stil-ets-mcp"
+
 WORKDIR /app
 
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /usr/local/bin/uv
