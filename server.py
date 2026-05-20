@@ -12,7 +12,18 @@ from tools.lab_knowledge import (
 )
 from tools.semantic_scholar import search_semantic_scholar_papers
 
-mcp = FastMCP("STIL Lab Assistant")
+def _allowed_hosts() -> list[str]:
+    hosts = ["localhost", "127.0.0.1"]
+    if host := os.getenv("RAILWAY_PUBLIC_DOMAIN"):
+        hosts.append(host)
+    if host := os.getenv("ALLOWED_HOST"):
+        hosts.append(host)
+    return hosts
+
+mcp = FastMCP(
+    "STIL Lab Assistant",
+    transport_security={"allowed_hosts": _allowed_hosts(), "allowed_origins": []},
+)
 
 
 # ---------------------------------------------------------------------------
