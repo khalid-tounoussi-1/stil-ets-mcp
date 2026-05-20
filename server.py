@@ -12,18 +12,14 @@ from tools.lab_knowledge import (
 )
 from tools.semantic_scholar import search_semantic_scholar_papers
 
-def _allowed_hosts() -> list[str]:
-    hosts = ["localhost", "127.0.0.1"]
-    if host := os.getenv("RAILWAY_PUBLIC_DOMAIN"):
-        hosts.append(host)
-    if host := os.getenv("ALLOWED_HOST"):
-        hosts.append(host)
-    return hosts
+def _transport_security() -> dict | None:
+    # DNS rebinding protection only makes sense for localhost servers.
+    # Disable it when running as a public hosted server.
+    if os.getenv("MCP_TRANSPORT") == "streamable-http":
+        return {"enable_dns_rebinding_protection": False}
+    return None
 
-mcp = FastMCP(
-    "STIL Lab Assistant",
-    transport_security={"allowed_hosts": _allowed_hosts(), "allowed_origins": []},
-)
+mcp = FastMCP("STIL Lab Assistant", transport_security=_transport_security())
 
 
 # ---------------------------------------------------------------------------
