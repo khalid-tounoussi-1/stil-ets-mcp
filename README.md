@@ -89,62 +89,6 @@ uv run mcp dev server.py
 
 ---
 
-## Deployment
-
-### Railway (recommended)
-
-1. Fork or push this repo to GitHub
-2. Go to [railway.app](https://railway.app) → **New Project** → **Deploy from GitHub repo**
-3. Select this repo — Railway auto-detects the `Procfile`
-4. Set the environment variable:
-   ```
-   MCP_TRANSPORT=streamable-http
-   ```
-   (`PORT` is injected automatically by Railway)
-5. Deploy — your server URL will be `https://<project>.up.railway.app`
-
-### Fly.io
-
-```bash
-fly launch        # auto-detects Dockerfile, creates fly.toml
-fly secrets set MCP_TRANSPORT=streamable-http
-fly deploy
-```
-
-### Docker (any VPS)
-
-```bash
-docker build -t stil-mcp .
-docker run -p 8000:8000 -e MCP_TRANSPORT=streamable-http stil-mcp
-```
-
----
-
-## Connecting a client
-
-**Claude Desktop** — edit `~/Library/Application Support/Claude/claude_desktop_config.json`:
-
-```json
-{
-  "mcpServers": {
-    "stil-lab": {
-      "type": "streamable-http",
-      "url": "https://<your-server>/mcp"
-    }
-  }
-}
-```
-
-**Claude Code CLI:**
-
-```bash
-claude mcp add --transport streamable-http stil-lab https://<your-server>/mcp
-```
-
-Restart Claude Desktop after editing the config. Lab members only need the URL — no local install required.
-
----
-
 ## Keeping data up to date
 
 Edit the JSON files in `data/` directly and redeploy:
@@ -155,4 +99,12 @@ Edit the JSON files in `data/` directly and redeploy:
 | `data/students.json` | Student profiles — name, role, year, research topic |
 | `data/publications.json` | Publication list — title, authors, year, venue |
 | `data/projects.json` | Active research projects with keywords and members |
+
+---
+
+## About STIL
+
+The **Software Technology and Intelligence Research Lab** is led by [Prof. Ali Ouni](mailto:ali.ouni@etsmtl.ca) at ETS Montreal (École de technologie supérieure), University of Quebec. The lab works at the intersection of Artificial Intelligence and Software Engineering — focusing on software maintenance, refactoring, technical debt, Infrastructure-as-Code, and empirical SE.
+
+→ [ouniali.github.io](https://ouniali.github.io/)
 
