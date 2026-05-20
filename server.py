@@ -1,3 +1,6 @@
+import os
+
+import uvicorn
 from mcp.server.fastmcp import FastMCP
 
 from tools.arxiv_search import search_arxiv_papers
@@ -298,8 +301,47 @@ def find_related_work(research_question: str, max_results_per_source: int = 5) -
     return "\n".join(lines)
 
 
-def main():
-    mcp.run()
+class _BearerAuth:
+    """ASGI middleware that enforces a static bearer token when MCP_AUTH_TOKEN is set."""
+
+    def __init__(self, app, token: str) -> None:
+        self.app = app
+        self.token = token
+
+    async def __call__(self, scope, receive, send) -> None:
+        if scope["type"] == "http":
+            headers = dict(scope.get("headers", []))
+            auth = headers.get(b"authorization", b"").decode()
+            if auth != f"Bearer {self.token}":
+                async def _send_401(send):
+                    await send({
+                        "type": "http.response.start",
+                        "status": 401,
+                        "headers": [[b"content-type", b"application/json"]],
+                    })
+                    await send({
+                        "type": "http.response.body",
+                        "body": b'{"error":"Unauthorized"}',
+                    })
+                await _send_401(send)
+                return
+        await self.app(scope, receive, send)
+
+
+def main() -> None:
+    transport = os.getenv("MCP_TRANSPORT", "stdio")
+    if transport == "streamable-http":
+        app = mcp.streamable_http_app()
+        if token := os.getenv("MCP_AUTH_TOKEN"):
+            app = _BearerAuth(app, token)
+        uvicorn.run(
+            app,
+            host="0.0.0.0",
+            port=int(os.getenv("PORT", "8000")),
+            log_level="info",
+        )
+    else:
+        mcp.run()
 
 
 if __name__ == "__main__":

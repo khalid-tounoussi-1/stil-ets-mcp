@@ -1,82 +1,128 @@
 # STIL Lab MCP Server
 
-MCP server for the [Software Technology and Intelligence Research Lab (STIL)](https://ouniali.github.io/) at ETS Montreal. Gives Claude direct access to lab knowledge and research paper search.
+MCP server for the [Software Technology and Intelligence Research Lab (STIL)](https://ouniali.github.io/) at ETS Montreal. Gives Claude direct access to lab knowledge and live research paper search.
 
 ## Tools
 
 | Tool | Description |
 |---|---|
 | `get_lab_overview` | Lab description, director, contact, research areas |
-| `list_students` | List students filtered by role (`phd`/`master`) and status (`current`/`alumni`) |
-| `get_student_info` | Detailed info for a student by name (partial match) |
-| `list_publications` | STIL publications filtered by year, author, venue, or keyword |
-| `get_research_topics` | Research topics and active projects |
-| `search_arxiv` | Search ArXiv by keywords, with optional year filter |
-| `search_semantic_scholar` | Search Semantic Scholar (covers ACM, IEEE, and more) |
-| `find_related_work` | Cross-search ArXiv + Semantic Scholar for a research question |
+| `list_students` | List students by role (`phd`/`master`) and status (`current`/`alumni`) |
+| `get_student_info` | Lookup any student by partial name |
+| `list_publications` | STIL publications, filterable by year/author/venue/keyword |
+| `get_research_topics` | Research areas and active projects |
+| `search_arxiv` | Live ArXiv search with optional year filter |
+| `search_semantic_scholar` | Live search covering ACM, IEEE, and more |
+| `find_related_work` | Cross-searches ArXiv + Semantic Scholar for a research question |
 
-## Setup
+---
 
-### 1. Install dependencies
+## How it works
 
-```bash
-uv sync
+```
+Claude Desktop / Claude Code / any MCP client
+        │
+        │  JSON-RPC over HTTP (Streamable HTTP transport)
+        ▼
+  https://your-server.railway.app/mcp
+        │
+        ├── reads data/ JSON files (students, publications, projects)
+        ├── calls arxiv.org API
+        └── calls semanticscholar.org API
 ```
 
-Or with pip:
+The server exposes a single endpoint: `POST /mcp` (and `GET /mcp` for SSE streaming).  
+Clients authenticate with `Authorization: Bearer <token>`.
+
+---
+
+## Deployment
+
+### Option A — Railway (recommended, free tier)
+
+1. Push this repo to GitHub
+2. Go to [railway.app](https://railway.app) → **New Project** → **Deploy from GitHub repo**
+3. Select this repo — Railway auto-detects the `Procfile`
+4. In **Variables**, set:
+   ```
+   MCP_AUTH_TOKEN=<generate a strong random token>
+   ```
+   (`PORT` is set automatically by Railway)
+5. Deploy. Your server URL will be `https://<project>.up.railway.app`
+
+### Option B — Fly.io
+
 ```bash
-pip install -e .
+fly launch          # auto-detects Dockerfile, creates fly.toml
+fly secrets set MCP_AUTH_TOKEN=<your-token>
+fly deploy
 ```
 
-### 2. Add to Claude Desktop
+### Option C — Docker (any VPS)
 
-Edit `~/Library/Application Support/Claude/claude_desktop_config.json`:
+```bash
+docker build -t stil-mcp .
+docker run -p 8000:8000 \
+  -e MCP_AUTH_TOKEN=<your-token> \
+  stil-mcp
+```
+
+---
+
+## Connecting clients to the hosted server
+
+Once deployed, add to Claude Desktop (`~/Library/Application Support/Claude/claude_desktop_config.json`):
 
 ```json
 {
   "mcpServers": {
     "stil-lab": {
-      "command": "uv",
-      "args": [
-        "--directory",
-        "/Users/kadoud/Desktop/src/repos/stil-ets-mcp",
-        "run",
-        "python",
-        "server.py"
-      ]
+      "type": "streamable-http",
+      "url": "https://<your-server>/mcp",
+      "headers": {
+        "Authorization": "Bearer <your-token>"
+      }
     }
   }
 }
 ```
 
-### 3. Add to Claude Code (CLI)
-
+For Claude Code CLI:
 ```bash
-claude mcp add stil-lab -- uv --directory /Users/kadoud/Desktop/src/repos/stil-ets-mcp run python server.py
+claude mcp add --transport streamable-http stil-lab \
+  https://<your-server>/mcp \
+  --header "Authorization: Bearer <your-token>"
 ```
 
-Restart Claude Desktop after adding the config.
+Share the URL + token with lab members — they each add this one config line, no local install needed.
 
-## Keeping data up to date
+---
 
-Lab data lives in `data/`. Edit these JSON files directly to add new students, publications, or projects:
-
-- `data/students.json` — student profiles
-- `data/publications.json` — lab publications
-- `data/projects.json` — research projects
-- `data/lab_info.json` — general lab info
-
-## Development
+## Local development
 
 ```bash
-# Run the server in dev mode (shows all tool calls)
+# Install deps
+uv sync
+
+# Run locally (stdio mode, for Claude Code)
+uv run python server.py
+
+# Run locally as HTTP server
+MCP_TRANSPORT=streamable-http uv run python server.py
+
+# Dev mode with MCP inspector
 uv run mcp dev server.py
-
-# Test a specific tool
-uv run python -c "
-from tools.arxiv_search import search_arxiv_papers
-import json
-results = search_arxiv_papers('infrastructure as code technical debt', max_results=3)
-print(json.dumps(results, indent=2))
-"
 ```
+
+---
+
+## Updating lab data
+
+Edit the JSON files in `data/` directly, then redeploy:
+
+| File | What it contains |
+|---|---|
+| `data/students.json` | Student profiles, roles, research topics |
+| `data/publications.json` | Lab publication list |
+| `data/projects.json` | Active research projects |
+| `data/lab_info.json` | General lab info, director contact |
