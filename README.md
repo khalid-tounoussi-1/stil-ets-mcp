@@ -78,10 +78,7 @@ Once deployed, add to Claude Desktop (`~/Library/Application Support/Claude/clau
   "mcpServers": {
     "stil-lab": {
       "type": "streamable-http",
-      "url": "https://<your-server>/mcp",
-      "headers": {
-        "Authorization": "Bearer <your-token>"
-      }
+      "url": "https://<your-server>/mcp"
     }
   }
 }
@@ -89,12 +86,10 @@ Once deployed, add to Claude Desktop (`~/Library/Application Support/Claude/clau
 
 For Claude Code CLI:
 ```bash
-claude mcp add --transport streamable-http stil-lab \
-  https://<your-server>/mcp \
-  --header "Authorization: Bearer <your-token>"
+claude mcp add --transport streamable-http stil-lab https://<your-server>/mcp
 ```
 
-Share the URL + token with lab members — they each add this one config line, no local install needed.
+Share the URL with lab members — they each add this one config line, no local install needed.
 
 ---
 
