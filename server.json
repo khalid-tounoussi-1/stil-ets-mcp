@@ -1,0 +1,17 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.khalid-tounoussi-1/stil-ets-mcp",
+  "title": "STIL Lab Assistant",
+  "description": "STIL lab at ETS Montreal — knowledge base and paper search via ArXiv and Semantic Scholar.",
+  "version": "1.0.0",
+  "packages": [
+    {
+      "registryType": "oci",
+      "identifier": "ghcr.io/khalid-tounoussi-1/stil-ets-mcp:1.0.0",
+      "transport": {
+        "type": "streamable-http",
+        "url": "http://localhost:8000/mcp"
+      }
+    }
+  ]
+}
