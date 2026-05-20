@@ -156,10 +156,3 @@ Edit the JSON files in `data/` directly and redeploy:
 | `data/publications.json` | Publication list — title, authors, year, venue |
 | `data/projects.json` | Active research projects with keywords and members |
 
----
-
-## About STIL
-
-The **Software Technology and Intelligence Research Lab** is led by [Prof. Ali Ouni](mailto:ali.ouni@etsmtl.ca) at ETS Montreal (École de technologie supérieure), University of Quebec. The lab works at the intersection of Artificial Intelligence and Software Engineering — focusing on software maintenance, refactoring, technical debt, Infrastructure-as-Code, and empirical SE.
-
-→ [ouniali.github.io](https://ouniali.github.io/)
